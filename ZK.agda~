@@ -1,0 +1,22 @@
+module test where
+
+open import Data.Empty
+open import Data.Unit hiding (_≟_)
+open import Data.Bool hiding (_≟_)
+open import Data.Nat hiding (_≟_)
+open import Data.String 
+open import Data.Maybe
+open import Data.List hiding (_++_)
+open import Data.Product
+open import Relation.Nullary
+open import Relation.Nullary.Decidable
+open import Relation.Binary.PropositionalEquality
+
+data Atom : Set where
+  Send : String → Atom
+  _←_ : String → ℕ → Atom
+  _← recv : String → Atom
+
+data Exp : Set where
+  <_$_> : Atom → Atom → Exp
+  
